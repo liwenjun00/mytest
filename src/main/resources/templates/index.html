@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-min.css}" rel="stylesheet">
+    <link th:href="@{css/bbootstrap-responsive.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive-min.css}" rel="stylesheet">
+    <script th:href="@{js/bootstrap.js}"></script>
+    <script th:href="@{js/bootstrap-min.js}"></script>
+    <script th:href="@{js/jquery.js}"></script>
+    <style type="text/css">
+        #u{
+            width: 500px;
+
+            border: 1px solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        #u td{
+            border: 1px solid;
+             border-collapse: collapse;
+        }
+    </style>
+    <script>
+        function tanchuan() {
+            alert(111);
+        }
+
+        function deleteUser() {
+           alert(1);
+           var name = document.getElementById("aa").html();
+           alert(name);
+        }
+    </script>
+</head>
+<body>
+<!--<div id="user">-->
+    <!--<span th:text="${user.name}"></span><br>-->
+    <!--<span th:text="${user.age}"></span>-->
+    <!--<input type="button" onclick="tanchuan()" />-->
+<!--</div>-->
+<br>
+<br>
+<span style="text-align: center">用户列表</span>
+<table id="u">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>成绩</th>
+        <th>部门</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="u,iterStat : ${users}">
+        <td th:text="${iterStat.index}"></td>
+        <td id = "aa" th:text="${u.name}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.score}"></td>
+        <td th:text="${u.dept}"></td>
+        <td><a onclick="deleteUser()">删除</a></td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>
